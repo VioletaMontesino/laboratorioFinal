@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title">LISTADO DE USUARIOS</span>
+                    <button class="btn btn-success float-end" routerLink="/add">NUEVO</button>
+                      
+                      <table class="table table-striped mt-5">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">Cumpleaños</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Sexo</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let user of listUsers">
+                            <td>{{ user.Nombre }}</td>
+                            <td>{{ user.Apellidos }}</td>
+                            <td>{{ user.Edad }}</td>
+                            <td>{{ user.Dni }}</td>
+                            <td>{{ user.Cumpleanos }}</td>
+                            <td>{{ user.ColorFav }}</td>
+                            <td>{{ user.Sexo }}</td>
+                            <td>
+                              <i [routerLink]="['/edit', user._id]" class="far fa-edit text-primary"></i>
+                              <i (click)="deleteUser(user._id)" class="fas fa-trash text-danger"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

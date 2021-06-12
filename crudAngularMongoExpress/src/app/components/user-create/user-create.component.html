@@ -1,0 +1,62 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title">{{ title }}</span>
+                    
+                    <form  class="needs-validation forms mt-3" novalidate action="" [formGroup] = "userForm" (ngSubmit)="addUser()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="Nombre" class="form-control form-control-lg" placeholder="Nombre" required minlength="3">
+                            <div class="text-danger" *ngIf="userForm.get('Nombre')?.hasError('required') && userForm.get('Nombre')?.touched">
+                                <span>El nombre es requerido y tiene que tener más de 3 caracteres</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="Apellidos" class="form-control form-control-lg" placeholder="Apelllidos">
+                            <div class="text-danger" *ngIf="userForm.get('Apellidos')?.hasError('required') && userForm.get('Apellidos')?.touched">
+                                <span>El apellido es requerido con letra</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" formControlName="Edad" id="validationCustomUsername" class="form-control form-control-lg" placeholder="Edad" min="0" max="125" ngModel>
+                            <div class="invalid-feedback">
+                                La edad tiene que estar comprendida entre 0 y 125
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="Dni" class="form-control form-control-lg" placeholder="DNI" minlength="9" maxlength="9">
+                            <div class="text-danger" *ngIf="userForm.get('Dni')?.hasError('required') && userForm.get('Dni')?.touched">
+                                <span>El DNI es requerido</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="Cumpleanos" class="form-control form-control-lg" placeholder="Cumpleaños">
+                            <div class="text-danger" *ngIf="userForm.get('Cumpleanos')?.hasError('required') && userForm.get('Cumpleanos')?.touched">
+                                <span>El cumpleaños es requerido en formato AAAA-MM-DD</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="ColorFav" class="form-control form-control-lg" placeholder="Color Favorito">
+                            <div class="text-danger" *ngIf="userForm.get('ColorFav')?.hasError('required') && userForm.get('ColorFav')?.touched">
+                                <span>El color es requerido</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="Sexo" class="form-control form-control-lg" placeholder="Sexo">
+                            <div class="text-danger" *ngIf="userForm.get('Sexo')?.hasError('required') && userForm.get('Sexo')?.touched">
+                                <span>El sexo es requerido. Valores aceptados: Hombre, Mujer, Otro, No definido</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-danger float-start" routerLink="/">VOLVER</button>
+                            <button class="btn btn-success" type="submit" [disabled]="userForm.invalid">ACEPTAR</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
